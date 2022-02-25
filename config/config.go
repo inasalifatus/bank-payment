@@ -37,5 +37,5 @@ func InitPort() {
 }
 
 func InitMigrate() {
-	DB.AutoMigrate(&models.Users{})
+	DB.AutoMigrate(&models.Customers{})
 }
