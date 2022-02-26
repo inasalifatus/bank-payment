@@ -38,4 +38,6 @@ func InitPort() {
 
 func InitMigrate() {
 	DB.AutoMigrate(&models.Customers{})
+	DB.AutoMigrate(&models.Payments{})
+
 }

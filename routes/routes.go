@@ -17,4 +17,11 @@ func New(e *echo.Echo) {
 	e.GET("/customers/:id", controllers.GetOneCustomersByIdController)
 	e.DELETE("/customers/:id", controllers.DeleteCustomersByIdController)
 	e.PUT("/customers/:id", controllers.UpdateCustomersController)
+
+	//----- to payments ------
+	e.GET("/payments", controllers.GetAllPaymentsController)
+	e.GET("/payments/:id", controllers.GetOnePaymentsController)
+	e.POST("/payments", controllers.CreatePaymentsController)
+	e.PUT("/payments/:id", controllers.UpdatePaymentsController)
+	e.DELETE("/payments/:id", controllers.DeletePaymentsController)
 }

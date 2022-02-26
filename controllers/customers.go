@@ -118,7 +118,7 @@ func LogoutCustomerController(c echo.Context) error {
 	if err = UserAuthorized(customerId, c); err != nil {
 		return err
 	}
-	logout, err := database.GetOneCustomerById(customerId)
+	logout, _ := database.GetOneCustomerById(customerId)
 	if logout.Token == "" {
 		return c.JSON(http.StatusBadRequest, "Please login again")
 	}

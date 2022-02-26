@@ -4,16 +4,15 @@ import (
 	"fmt"
 
 	"github.com/inasalifatus/bank-payment/config"
+	"github.com/inasalifatus/bank-payment/routes"
 	"github.com/labstack/echo"
 )
 
 func main() {
 	e := echo.New()
+	config.InitDB()
 	config.InitPort()
+	routes.New(e)
 
-	Port := fmt.Sprintf(":%d", config.PORT)
-	if err := e.Start(Port); err != nil {
-		e.Logger.Fatal(err)
-	}
-	fmt.Println("Application started...")
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":%d", config.PORT)))
 }
